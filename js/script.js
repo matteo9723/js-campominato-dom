@@ -10,14 +10,14 @@ let valoreGioco = 'facile'
 
 const difficoltà = document.getElementById('difficoltà');
 
+const numBombe = 16 ;
+
 difficoltà.addEventListener('click',function(){
   
  if(difficoltà.value==2){
   valoreGioco = 'medio'
-  console.log(valoreGioco);
  }else if (difficoltà.value==3){
    valoreGioco = 'difficile'
-   console.log(valoreGioco)
  }else {
    valoreGioco = 'facile';
  }
@@ -32,7 +32,6 @@ play.addEventListener('click',function(){
   if(valoreGioco==='facile'){
     numeroCaselle = 100;
     sizeCaselle='easy'
-    console.log(sizeCaselle);
   } 
   else if(valoreGioco==='medio'){
     numeroCaselle = 81;
@@ -41,6 +40,10 @@ play.addEventListener('click',function(){
     numeroCaselle=49;
     sizeCaselle='hard'
   }
+
+  const posizioneBombe = positionBomb(numBombe);
+  console.log(posizioneBombe);
+ 
 
   for(let i = 0 ; i < numeroCaselle ; i++){
     const div = document.createElement('div');
@@ -52,12 +55,21 @@ play.addEventListener('click',function(){
 
     div.addEventListener('click',function(){
       this.classList.add('clicked');
-      console.log(div);
     });
 
   }
 
-  console.log(numeroCaselle);
-
+   function positionBomb (num){
+    let arr = [];
+    let numRandom = Math.floor(Math.random()*numeroCaselle);
+    
+     for (let i = 0 ; i < num;i++){
+       if(arr.includes(numRandom)){
+         i--
+       }
+       else {arr.append(numRandom)};
+     } 
+     return arr;
+   }
 
 });
