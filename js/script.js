@@ -62,9 +62,9 @@ play.addEventListener('click',function(){
     container.append(div);
 
     div.addEventListener('click',function(){
-      let giocoFinito = false;
+      let perso = false;
 
-      if(giocoFinito == false){
+      if(perso == false){
         for(let i = 0 ; i < posizioneBombe.length ; i++){
           if(this.innerText==posizioneBombe[i]){
             console.log(document.getElementsByClassName('square'));
@@ -79,7 +79,7 @@ play.addEventListener('click',function(){
             }
             esito.innerHTML=`<h2>Hai perso con ${vinto+1} tentativi!!!</h2>`;
             console.log(vinto);
-            giocoFinito = true;
+            perso = true;
           }
           
         }
@@ -89,7 +89,6 @@ play.addEventListener('click',function(){
       console.log('vinto',vinto);
       if(vinto == (numeroCaselle-numBombe)){
         esito.innerHTML=`<h2>Hai Vinto!!!</h2>`;
-        giocoFinito=true;
       }
       
     });

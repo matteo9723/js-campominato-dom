@@ -86,6 +86,7 @@ main{
   justify-content: center;
   align-items: center;
   background-color:#7EFED4;
+  flex-wrap: wrap;
 }
 
  footer{
