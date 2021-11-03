@@ -82,11 +82,17 @@ header .bottoni {
 
 main{
   display: flex;
-  height: 80vh;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   background-color:#7EFED4;
-  flex-wrap: wrap;
+  padding: 10px;
+  
+}
+
+.esito{
+  width: 100%;
+  text-align: center;
 }
 
  footer{

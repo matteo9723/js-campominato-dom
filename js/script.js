@@ -34,6 +34,8 @@ play.addEventListener('click',function(){
   container.innerHTML='';
   esito.innerHTML='';
   let sizeCaselle =''; 
+  let perso = false;
+
 
   if(valoreGioco==='facile'){
     numeroCaselle = 100;
@@ -62,8 +64,7 @@ play.addEventListener('click',function(){
     container.append(div);
 
     div.addEventListener('click',function(){
-      let perso = false;
-
+    
       if(perso == false){
         for(let i = 0 ; i < posizioneBombe.length ; i++){
           if(this.innerText==posizioneBombe[i]){
@@ -87,8 +88,18 @@ play.addEventListener('click',function(){
       this.classList.add('clicked');
       vinto ++;
       console.log('vinto',vinto);
-      if(vinto == (numeroCaselle-numBombe)){
+      if(vinto == (numeroCaselle-numBombe)&& perso==false){
+
+        for(let ii = 0 ; ii < numeroCaselle;ii++){
+          for(let iii = 0 ; iii < posizioneBombe.length ; iii++){   
+            if(document.getElementsByClassName('square')[ii].innerText==posizioneBombe[iii]){
+              document.getElementsByClassName('square')[ii].classList.add('lose');
+          }}
+        }
+        
         esito.innerHTML=`<h2>Hai Vinto!!!</h2>`;
+        
+        perso = true;
       }
       
     });
